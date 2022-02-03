@@ -1,1 +1,16 @@
-hola, visita mi <a href="{% url 'blog:home' %}">PAgina aqui</a> auauauau
+{% extends 'base.html' %}
+
+{% block content %}
+
+blog LIst 
+<br>
+{% for post in posts %}
+<a href="{% url 'blog:detail' post.id %}">{{post.title}}</a>
+<a href="{% url 'blog:update' post.id %}">Update</a>
+<a href="{% url 'blog:delete' post.id %}">Delete</a>
+<br>
+{% endfor %}
+
+<a href="{% url 'blog:create' %}">CRear</a>
+
+{% endblock content %}
